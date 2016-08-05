@@ -1,7 +1,7 @@
 
 import os, sys, subprocess, math
 
-query = '/Users/amandaeveritt/ENV/FLASKapp/APP5_all/UPLOAD_FOLDER/query'
+query = os.path.dirname(os.path.abspath(__file__))+'/UPLOAD_FOLDER/query'
 
 subprocess.call('hmmsearch blue.hmm {} > blue.output'.format(query),shell=True)
 subprocess.call('hmmsearch yellow.hmm {} > yellow.output'.format(query),shell=True)

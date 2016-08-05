@@ -4,7 +4,7 @@ import os, subprocess,time
 
 # Initialize the Flask application
 app = Flask(__name__)
-UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__))+'/UPLOAD_FOLDER'
+UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__))+'/UPLOAD_FOLDER/'
 ALLOWED_EXTENSIONS = set(['fasta','fa'])
 
 app = Flask(__name__)
