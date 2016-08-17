@@ -2,9 +2,9 @@
 import os, sys, subprocess, math
 siteBase = os.path.dirname(os.path.abspath(__file__))
 query = siteBase+'/UPLOAD_FOLDER/query'
-redHmm = siteBase+'/red.hmm'
-blueHmm = siteBase+'/blue.hmm'
-yellowHmm = siteBase+'/yellow.hmm'
+redHmm = siteBase+'/hmm/red.hmm'
+blueHmm = siteBase+'/hmm/blue.hmm'
+yellowHmm = siteBase+'/hmm/yellow.hmm'
 
 
 subprocess.call('hmmsearch '+blueHmm+' {} > blue.output'.format(query),shell=True)
