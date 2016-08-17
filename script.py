@@ -1,11 +1,15 @@
 
 import os, sys, subprocess, math
+siteBase = os.path.dirname(os.path.abspath(__file__))
+query = siteBase+'/UPLOAD_FOLDER/query'
+redHmm = siteBase+'/red.hmm'
+blueHmm = siteBase+'/blue.hmm'
+yellowHmm = siteBase+'/yellow.hmm'
 
-query = os.path.dirname(os.path.abspath(__file__))+'/UPLOAD_FOLDER/query'
 
-subprocess.call('hmmsearch blue.hmm {} > blue.output'.format(query),shell=True)
-subprocess.call('hmmsearch yellow.hmm {} > yellow.output'.format(query),shell=True)
-subprocess.call('hmmsearch red.hmm {} > red.output'.format(query),shell=True)
+subprocess.call('hmmsearch '+blueHmm+' {} > blue.output'.format(query),shell=True)
+subprocess.call('hmmsearch '+redHmm+' {} > red.output'.format(query),shell=True)
+subprocess.call('hmmsearch '+yellowHmm+' {} > yellow.output'.format(query),shell=True)
 
 samples = {}
 expected_blue = float("4.08E-37")
@@ -73,20 +77,20 @@ for ID in samples:
 	match =  min(samples[ID], key=float)
 	pos= [i for i,x in enumerate(samples[ID]) if x == match]
 	if pos == [0]:
-		print ID, 'is most likely blue expressing'
-		print 'blue score:',abs( samples[ID][0])
-		print 'yellow score:', abs(samples[ID][2])
-		print 'red score:', abs(samples[ID][1])
+		print '<strong>'+ID, 'is most likely blue expressing'+'</strong><br />'
+		print 'blue score:',abs( samples[ID][0]),'<br />'
+		print 'yellow score:', abs(samples[ID][2]),'<br />'
+		print 'red score:', abs(samples[ID][1]),'<br /><br />'
 	elif pos == [1]:
-		print ID, 'is most likely red expressing'
-		print 'blue score:', abs(samples[ID][0])
-                print 'yellow score:', abs(samples[ID][2])
-                print 'red score:', abs(samples[ID][1])
+		print '<strong>'+ID, 'is most likely red expressing'+'</strong><br />'
+		print 'blue score:',abs( samples[ID][0]),'<br />'
+		print 'yellow score:', abs(samples[ID][2]),'<br />'
+		print 'red score:', abs(samples[ID][1]),'<br /><br />'
 	elif pos == [2]:
-		print ID, 'is most likely yellow expressing'
-		print 'blue score:', abs(samples[ID][0])
-                print 'yellow score:', abs(samples[ID][2])
-                print 'red score:', abs(samples[ID][1])
+		print '<strong>'+ID, 'is most likely yellow expressing'+'</strong><br />'
+		print 'blue score:',abs( samples[ID][0]),'<br />'
+		print 'yellow score:', abs(samples[ID][2]),'<br />'
+		print 'red score:', abs(samples[ID][1]),'<br /><br />'
 
 os.remove('blue.output')
 os.remove('red.output')
