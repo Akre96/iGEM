@@ -77,20 +77,29 @@ for ID in samples:
 	match =  min(samples[ID], key=float)
 	pos= [i for i,x in enumerate(samples[ID]) if x == match]
 	if pos == [0]:
-		print '<strong>'+ID, 'is most likely blue expressing'+'</strong><br />'
-		print 'blue score:',abs( samples[ID][0]),'<br />'
-		print 'yellow score:', abs(samples[ID][2]),'<br />'
-		print 'red score:', abs(samples[ID][1]),'<br /><br />'
+		print '<tr>'
+		print '<td>'+ID+'</td>'
+		print '<td> Blue </td>'
+		print '<td>',abs( samples[ID][0]),'</td>'
+		print '<td>', abs(samples[ID][2]),'</td>'
+		print '<td>', abs(samples[ID][1]),'</td>'
+		print '</tr>'
 	elif pos == [1]:
-		print '<strong>'+ID, 'is most likely red expressing'+'</strong><br />'
-		print 'blue score:',abs( samples[ID][0]),'<br />'
-		print 'yellow score:', abs(samples[ID][2]),'<br />'
-		print 'red score:', abs(samples[ID][1]),'<br /><br />'
+		print '<tr>'
+		print '<td>'+ID+'</td>'
+		print '<td> Red </td>'
+		print '<td>',abs( samples[ID][0]),'</td>'
+		print '<td>', abs(samples[ID][2]),'</td>'
+		print '<td>', abs(samples[ID][1]),'</td>'
+		print '</tr>'
 	elif pos == [2]:
-		print '<strong>'+ID, 'is most likely yellow expressing'+'</strong><br />'
-		print 'blue score:',abs( samples[ID][0]),'<br />'
-		print 'yellow score:', abs(samples[ID][2]),'<br />'
-		print 'red score:', abs(samples[ID][1]),'<br /><br />'
+		print '<tr>'
+		print '<td>'+ID+'</td>'
+		print '<td> Yellow </td>'
+		print '<td>',abs( samples[ID][0]),'</td>'
+		print '<td>', abs(samples[ID][2]),'</td>'
+		print '<td>', abs(samples[ID][1]),'</td>'
+		print '</tr>'
 
 os.remove('blue.output')
 os.remove('red.output')

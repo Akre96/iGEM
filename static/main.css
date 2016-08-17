@@ -5806,5 +5806,45 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+/* Variables */
+/* centered columns styles */
+.row-centered {
+  text-align: center; }
+
+.col-centered {
+  display: inline-block;
+  float: none;
+  /* reset the text-align */
+  text-align: left;
+  /* inline-block space fix */
+  margin-right: -4px; }
+
+/* Page Styles */
+.page-header {
+  text-align: center; }
+  .page-header #logo {
+    max-height: 40vh; }
+
+.btn-blue {
+  background-color: #3351ff;
+  border: 1px solid #3351ff;
+  -webkit-transition: color 0.1s ease;
+  -o-transition: color 0.1s ease;
+  transition: color 0.1s ease;
+  -webkit-transition: background-color 0.1s ease;
+  -o-transition: background-color 0.1s ease;
+  transition: background-color 0.1s ease;
+  color: white; }
+  .btn-blue a:visited {
+    color: white; }
+  .btn-blue :hover, .btn-blue:hover {
+    color: #3351ff;
+    background-color: white;
+    -webkit-transition: background-color 0.1s ease;
+    -o-transition: background-color 0.1s ease;
+    transition: background-color 0.1s ease;
+    -webkit-transition: color 0.1s ease;
+    -o-transition: color 0.1s ease;
+    transition: color 0.1s ease; }
 
 /*# sourceMappingURL=main.css.map */

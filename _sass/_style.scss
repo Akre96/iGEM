@@ -1,0 +1,58 @@
+/* Variables */
+$blue:	#0026FF;
+
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+/* Page Styles */
+.page-header
+{
+	text-align:center;
+	#logo
+	{
+		max-height:40vh;
+	}
+	h1
+	{
+//		color:$blue;
+	}
+	small
+	{
+//		color:$gray;
+	}
+}
+.index
+{
+
+}
+.btn-blue
+{
+	background-color:lighten($blue,10%);
+	border:1px solid lighten($blue,10%);
+	@include transition(color .1s ease);
+	@include transition(background-color .1s ease);
+	color:white;
+	a:visited
+	{
+		color:white;
+	}
+	:hover,&:hover
+	{
+		color:lighten($blue,10%);
+		background-color:white;
+		@include transition(background-color .1s ease);
+		@include transition(color .1s ease);
+
+	}
+}

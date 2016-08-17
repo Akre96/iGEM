@@ -2,17 +2,14 @@
 <html>
   
   <body>
-     <div class="container">
-      <header class = "header">
-        <h3 class="text-muted">UC Davis iGEM team 2016</h3>
-      </header>
+     <div class="container-fluid">
+	{% include 'header.html' %}
 
 	{% block body %} {% endblock%}
 
-      <div class="footer">
-        <p>&copy; iGEM 2013</p>
-      </div>
+	{% include 'footer.html' %}
 
     </div> <!-- /container -->
   </body>
+
 </html>
