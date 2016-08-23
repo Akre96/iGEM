@@ -1,7 +1,11 @@
 
 import os, sys, subprocess, math
 siteBase = os.path.dirname(os.path.abspath(__file__))
-query = siteBase+'/UPLOAD_FOLDER/query'
+if sys.argv[1] == '1':
+	query = siteBase+'/UPLOAD_FOLDER/query'
+else:
+	query = siteBase+'/query.fa'
+
 redHmm = siteBase+'/hmm/red.hmm'
 blueHmm = siteBase+'/hmm/blue.hmm'
 yellowHmm = siteBase+'/hmm/yellow.hmm'
@@ -104,4 +108,5 @@ for ID in samples:
 os.remove('blue.output')
 os.remove('red.output')
 os.remove('yellow.output')
-os.remove(query)
+if sys.argv[1] == '1':
+	os.remove(query)

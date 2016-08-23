@@ -21,15 +21,33 @@ $blue:	#0026FF;
 	text-align:center;
 	#logo
 	{
-		max-height:40vh;
+		max-height:20vh;
 	}
 	h1
 	{
-//		color:$blue;
 	}
 	small
 	{
 //		color:$gray;
+
+	}
+}
+form
+{
+	padding:20px;
+	border:1.5px solid lighten($blue,10%);
+	border-radius:10px;
+}
+.jumbotron
+{
+	background-color:lighten($blue,45%);
+	h1
+	{
+		font-size: 200%;
+	}
+	p
+	{
+		font-size: 130%;
 	}
 }
 .index
@@ -54,5 +72,31 @@ $blue:	#0026FF;
 		@include transition(background-color .1s ease);
 		@include transition(color .1s ease);
 
+	}
+}
+.fileOut
+{
+	word-wrap: break-word;
+	p
+	{
+		padding:30px;
+		border-radius: 10px;
+		border: 1px solid $gray;
+		background-color: lighten($gray,20%);
+		@include transition(background-color .1s ease);
+		&:hover
+		{
+			background-color: white;
+			@include transition(background-color .1s ease);
+		}
+	}
+}
+.footer
+{
+	background-color:lighten(blue,45%);
+	min-height:10vh;
+	p
+	{
+		text-align: center;
 	}
 }

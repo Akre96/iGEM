@@ -15,15 +15,28 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def upload_file():
     if request.method == 'POST':
         # Get the FileStorage instance from request
-        file = request.files['file']
-	if file:
-		filename =  secure_filename(file.filename)
-		file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'query'))
-        # Render template with file info
-	memory = subprocess.Popen(['python', scriptPath],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
+        if request.files['file']:
+            file = request.files['file']
+            filename =  secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'query'))
+            with open(os.path.join(app.config['UPLOAD_FOLDER'], 'query'),'r') as f:
+                fileData = f.read();
+            mode='1';
+
+        # Render template with file info            
+        else:
+            filename = 'SampleData'
+            mode='0'
+            with open(os.path.dirname(os.path.abspath(__file__))+'/query.fa') as f:
+                fileData = f.read();
+
+            
+
+	memory = subprocess.Popen(['python', scriptPath,mode],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     	out,error = memory.communicate()
 	return render_template('file.html',
 		filename = filename,
+        fileData= fileData,
 		out= Markup(out),
 		error= error)
     return render_template('index.html')

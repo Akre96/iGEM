@@ -5823,7 +5823,19 @@ button.close {
 .page-header {
   text-align: center; }
   .page-header #logo {
-    max-height: 40vh; }
+    max-height: 20vh; }
+
+form {
+  padding: 20px;
+  border: 1.5px solid #3351ff;
+  border-radius: 10px; }
+
+.jumbotron {
+  background-color: #e6e9ff; }
+  .jumbotron h1 {
+    font-size: 200%; }
+  .jumbotron p {
+    font-size: 130%; }
 
 .btn-blue {
   background-color: #3351ff;
@@ -5846,5 +5858,27 @@ button.close {
     -webkit-transition: color 0.1s ease;
     -o-transition: color 0.1s ease;
     transition: color 0.1s ease; }
+
+.fileOut {
+  word-wrap: break-word; }
+  .fileOut p {
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #555555;
+    background-color: #888888;
+    -webkit-transition: background-color 0.1s ease;
+    -o-transition: background-color 0.1s ease;
+    transition: background-color 0.1s ease; }
+    .fileOut p:hover {
+      background-color: white;
+      -webkit-transition: background-color 0.1s ease;
+      -o-transition: background-color 0.1s ease;
+      transition: background-color 0.1s ease; }
+
+.footer {
+  background-color: #e6e6ff;
+  min-height: 10vh; }
+  .footer p {
+    text-align: center; }
 
 /*# sourceMappingURL=main.css.map */
