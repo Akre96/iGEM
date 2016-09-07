@@ -30,13 +30,14 @@ def upload_file():
             with open(os.path.dirname(os.path.abspath(__file__))+'/query.fa') as f:
                 fileData = f.read();
 
-            
+        
+        fileData = fileData.replace('>', '<br/>')
 
 	memory = subprocess.Popen(['python', scriptPath,mode],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     	out,error = memory.communicate()
 	return render_template('file.html',
 		filename = filename,
-        fileData= fileData,
+        fileData= Markup(fileData),
 		out= Markup(out),
 		error= error)
     return render_template('index.html')
