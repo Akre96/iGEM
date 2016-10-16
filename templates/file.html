@@ -31,13 +31,8 @@
   <div class="col-xs-11 col-sm-11 col-centered fileOut">
     <h3>Input File:</h3>
     <p>
-      {% set x = 1 %}
       {% for line in fileData %}
-        {% if (x % 2) == 0 %}
-          {{line}} <br/>
-        {% else %}
-          >{{line}} <br/>
-        {% endif %}
+      {{line}} <br/>
       {% endfor %}
    </p>
   </div>
