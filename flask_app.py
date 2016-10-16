@@ -20,7 +20,7 @@ def upload_file():
             filename =  secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], 'query'))
             with open(os.path.join(app.config['UPLOAD_FOLDER'], 'query'),'r') as f:
-                fileData = f.read();
+                fileData = f.readlines();
             mode='1';
 
         # Render template with file info            
@@ -28,16 +28,18 @@ def upload_file():
             filename = 'SampleData'
             mode='0'
             with open(os.path.dirname(os.path.abspath(__file__))+'/query.fa') as f:
-                fileData = f.read();
+                fileData = f.readlines();
 
+        for line in fileData:
+            line = line.replace('/n','<br/>')
         
-        fileData = fileData.replace('>', '<br/>')
+        
 
 	memory = subprocess.Popen(['python', scriptPath,mode],stdout=subprocess.PIPE,stderr=subprocess.PIPE)
     	out,error = memory.communicate()
 	return render_template('file.html',
 		filename = filename,
-        fileData= Markup(fileData),
+        fileData= fileData,
 		out= Markup(out),
 		error= error)
     return render_template('index.html')

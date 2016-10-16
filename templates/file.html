@@ -30,7 +30,11 @@
 <div class="row row-centered">
   <div class="col-xs-11 col-sm-11 col-centered fileOut">
     <h3>Input File:</h3>
-    <p>{{fileData}}</p>
+    <p>
+      {% for line in fileData %}
+      {{line}} <br/>
+      {% endfor %}
+   </p>
   </div>
 </div>
 </div>
